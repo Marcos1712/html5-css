@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Site com Menu</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+    }
+    header {
+      background-color: #333;
+      color: white;
+      padding: 15px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav {
+      display: flex;
+      justify-content: space-around;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 10px;
+    }
+    nav a:hover {
+      background-color: #555;
+      border-radius: 5px;
+    }
+    section {
+      padding: 60px 20px;
+      height: 100vh;
+    }
+    #inicio { background-color: #f4f4f4; }
+    #sobre { background-color: #ddd; }
+    #servicos { background-color: #bbb; }
+    #contato { background-color: #999; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <a href="#inicio">Início</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#contato">Contato</a>
+    </nav>
+  </header>
+
+  <section id="inicio">
+    <h1>Bem-vindo</h1>
+    <p>Essa é a página inicial do site.</p>
+  </section>
+
+  <section id="sobre">
+    <h1>Sobre</h1>
+    <p>Informações sobre a empresa ou pessoa.</p>
+  </section>
+
+  <section id="servicos">
+    <h1>Serviços</h1>
+    <p>Detalhes dos serviços oferecidos.</p>
+  </section>
+
+  <section id="contato">
+    <h1>Contato</h1>
+    <p>Formas de entrar em contato.</p>
+  </section>
+
+</body>
+</html>
