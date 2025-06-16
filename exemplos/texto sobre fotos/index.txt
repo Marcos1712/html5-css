@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Site com Foto Fixa e Texto Sobreposto</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+<style>
+  /* Reset e box-sizing */
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Inter', sans-serif;
+    color: #ffffff;
+    background: #000;
+    overflow-x: hidden;
+  }
+
+  /* Fundo fixo com imagem pública */
+  .background-fixed {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: url("https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?&w=1920&q=80&auto=format&fit=crop");
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    filter: brightness(0.5);
+    z-index: -1;
+  }
+
+  /* Container principal */
+  main {
+    min-height: 100vh;
+    padding: 48px 24px 96px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  /* Texto sobreposto com fundo semi-transparente e blur */
+  .overlay-text {
+    position: relative;
+    background: rgba(0,0,0,0.5);
+    backdrop-filter: blur(7px);
+    border-radius: 16px;
+    padding: 32px 24px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+    font-size: clamp(1.125rem, 2vw, 1.5rem);
+    line-height: 1.4;
+    font-weight: 600;
+    max-width: 600px;
+    user-select: none;
+  }
+
+  /* Texto animado deslizando horizontalmente */
+  .overlay-text span {
+    display: inline-block;
+    white-space: nowrap;
+    animation: slideText 14s linear infinite;
+  }
+
+  @keyframes slideText {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+  }
+
+  /* Header fixo no topo */
+  header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 64px;
+    background: rgba(16,185,129,0.85);
+    backdrop-filter: saturate(180%) blur(12px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+  }
+
+  header h1 {
+    color: white;
+    font-weight: 700;
+    font-size: 1.5rem;
+    user-select: none;
+  }
+
+  /* Responsividade */
+  @media (max-width: 640px) {
+    main {
+      max-width: 90vw;
+      padding: 48px 16px 80px;
+    }
+    .overlay-text {
+      font-size: 1.125rem;
+      padding: 24px 16px;
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="background-fixed" role="img" aria-label="Imagem fixa de paisagem natural ao entardecer"></div>
+  <header>
+    <h1>Meu Site com Foto Fixa</h1>
+  </header>
+  <main>
+    <div class="overlay-text" aria-live="polite" aria-atomic="true">
+      <span>Texto passando suavemente sobre a foto fixa – moderno, espaçado e legível.</span>
+    </div>
+  </main>
+</body>
+</html>
